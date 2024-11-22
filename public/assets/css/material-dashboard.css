@@ -3804,8 +3804,8 @@ textarea.form-control.is-invalid {
 }
 
 .btn:hover {
-  color: var(--bs-btn-hover-color);
-  background-color: var(--bs-btn-hover-bg);
+  color: #000;
+  background-color: #40e7f6;
   border-color: var(--bs-btn-hover-border-color);
 }
 
@@ -24915,7 +24915,7 @@ hr.horizontal.gray-light {
   padding-left: 0.75rem;
   padding-right: 0.75rem;
   font-weight: 500;
-  color: #fff;
+  color: #000;
   font-size: 0.75rem;
 }
 

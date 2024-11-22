@@ -4,12 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\UserEvent;
 
 class DashboardController extends Controller
 {
     public function index()
     {
-        // dd('This is the registration page');
-        return view('UserPenal.dashboard');
+        $UserEvent = UserEvent::where('type', 1)->get();
+        // dd($UserEvent);
+        return view('UserPenal.dashboard', compact('UserEvent'));
     }
 }

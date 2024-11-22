@@ -55,7 +55,7 @@ p {
 </style>
 <body>
   <div class="container">
-    <img src="logo.png" alt="Cryque Logo" class="logo">
+    <img src="{{asset('assets/img/apple-icon.png')}}" alt="Cryque Logo" class="logo">
     <h1>CRYQUE</h1>
     <h2>Empowering businesses with Marketing & Development</h2>
     <p>Empowering businesses with Marketing & Development</p>
