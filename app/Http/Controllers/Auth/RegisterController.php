@@ -13,7 +13,7 @@ class RegisterController extends Controller
 {
     public function showRegistrationForm()
     {
-        dd('This is the registration page');
+
         return view('UserPenal.register');
     }
 
