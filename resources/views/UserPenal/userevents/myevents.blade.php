@@ -73,17 +73,30 @@
                 </style>
                 <div class="col-lg-4 col-md-6 mb-4">
                     <div class="card h-100">
-                       
-                        <div class="create-event-card text-center">
-                            <a href="{{route('userevent')}}">
-                            <div>
-                                <div class="plus-icon">+</div>
-                                <div class="create-event-text">
-                                    CREATE NEW <span class="highlight">EVENT</span>
-                                </div>
+                       @if ($user->status == 2)
+                       <div class="create-event-card text-center">
+                        <a href="{{route('userevent')}}">
+                        <div>
+                            <div class="plus-icon">+</div>
+                            <div class="create-event-text">
+                                CREATE NEW <span class="highlight">EVENT</span>
                             </div>
-                        </a>
                         </div>
+                    </a>
+                    </div>
+                    @else
+                    <div class="create-event-card text-center">
+                        <a href="#">
+                        <div>
+                            <div class="plus-icon">+</div>
+                            <div class="create-event-text">
+                                CREATE NEW <span class="highlight">EVENT</span>
+                            </div>
+                        </div>
+                    </a>
+                    </div>
+                       @endif
+                       
                     
                     </div>
                 </div>

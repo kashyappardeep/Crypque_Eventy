@@ -54,12 +54,16 @@ Route::namespace('App\Http\Controllers\Admin')->prefix('admin')->group(function 
         Route::get('/showcreateevent', [EventController::class, 'showcreateevent'])->name('admin.showcreateevent');
         Route::get('/upload_event_video', [EventController::class, 'upload_event_video'])->name('admin.upload_event_video');
         Route::post('/create_event', [EventController::class, 'create_event'])->name('create_event');
+        Route::get('/pending_event', [EventController::class, 'pending_event'])->name('pending_event');
         Route::get('/allstudents', [AllStudentController::class, 'index'])->name('allstudents');
         Route::post('/uploadVideo', [EventController::class, 'uploadVideo'])->name('uploadVideo');
 
 
         Route::post('/payment-history/accept/{id}', [PaymentHisController::class, 'accept'])->name('payment-history.accept');
         Route::post('/payment-history/reject/{id}', [PaymentHisController::class, 'reject'])->name('payment-history.reject');
+
+        Route::post('/event_accept/{id}', [EventController::class, 'event_accept'])->name('event_accept.accept');
+        Route::post('/event_reject/{id}', [EventController::class, 'event_reject'])->name('event_reject.reject');
 
         Route::resource('payment_his', PaymentHisController::class);
     });

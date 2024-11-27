@@ -7,12 +7,14 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\EventType;
 use App\Models\UserEvent;
+use App\Models\User;
 use App\Models\PaymentHistory;
 
 class UserEventController extends Controller
 {
     public function index()
     {
+        $user = User::where('id', auth()->id())->first();
 
         $EventType = EventType::get();
         // dd($EventType);
@@ -73,8 +75,9 @@ class UserEventController extends Controller
 
         $Event = UserEvent::where('user_id', Auth()->id())->where('type', 1)->get();
         // dd($Event);
+        $user = User::where('id', Auth()->id())->first();
 
-        return view('UserPenal.userevents.myevents', compact('Event'));
+        return view('UserPenal.userevents.myevents', compact('Event', 'user'));
     }
 
     public function edit($id)
@@ -89,7 +92,7 @@ class UserEventController extends Controller
     {
         $event = UserEvent::findOrFail($id);
         $event->delete();
-        return redirect()->route('events.index')->with('success', 'Event deleted successfully.');
+        return redirect()->route('my_event')->with('success', 'Event deleted successfully.');
     }
 
     public function update(Request $request, $id)

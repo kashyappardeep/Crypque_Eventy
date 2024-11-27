@@ -39,7 +39,7 @@ class EventController extends Controller
     {
         try {
             $request->validate([
-                'image' => 'required|mimes:mp4,mov,avi|max:20480',
+                'image' => 'required|mimes:mp4,mov,avi',
                 'event_name' => 'required|string',
                 'event_type' => 'required|integer',
             ]);
@@ -107,5 +107,32 @@ class EventController extends Controller
             return redirect()->route('admin.eventcreate')->with('success', 'Event created successfully.');
         }
         return redirect()->route('admin.eventcreate')->with('error', 'Event created successfully.');
+    }
+    public function pending_event(Request $request)
+    {
+        $user_event = UserEvent::with('user', 'EventType')
+            ->where('type', 1)
+            ->where('status', 1)
+            ->paginate(10);
+        return view('AdminPenal.pending_event', compact('user_event'));
+    }
+
+    public function event_accept($id)
+    {
+        $UserEvent = UserEvent::findOrFail($id);
+
+        $UserEvent->status = 2; // Example: 1 for accepted
+        $UserEvent->save();
+
+        return redirect()->back()->with('success', 'Event accepted successfully!');
+    }
+
+    public function event_reject($id)
+    {
+        $UserEvent = UserEvent::findOrFail($id);
+        $UserEvent->status = 3; // Example: 0 for rejected
+        $UserEvent->save();
+
+        return redirect()->back()->with('success', 'Event rejected successfully!');
     }
 }
