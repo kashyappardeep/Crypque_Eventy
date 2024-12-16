@@ -83,9 +83,12 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-dark" href="{{route('pending_event')}}">
+          <!-- <a class="nav-link text-dark" href="{{route('pending_event')}}">
             <i class="material-symbols-rounded opacity-5">Event</i>
-            <span class="nav-link-text ms-1">Pending Events Request</span>
+            <span class="nav-link-text ms-1">Pending Events Request</span> -->
+          <a class="nav-link text-dark" href="{{route('user-events')}}">
+            <i class="material-symbols-rounded opacity-5">Event</i>
+            <span class="nav-link-text ms-1">User Event List</span>
           </a>
         </li>
         <li class="nav-item">

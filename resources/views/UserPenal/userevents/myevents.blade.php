@@ -30,7 +30,15 @@
                             <a href="{{ route('event.edit', $event->id) }}" class="btn btn-primary">
                                 <i class="fa fa-edit"></i> Edit
                             </a>
-                
+                            @if($event->status == 1)
+                            <button class="btn btn-danger">
+                               Pending
+                            </button> 
+                            @else
+                            <button class="btn btn-danger">
+                                Complete
+                            </button> 
+                            @endif
                             <!-- Delete Button -->
                             <form action="{{ route('event.delete', $event->id) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this event?');">
                                 @csrf

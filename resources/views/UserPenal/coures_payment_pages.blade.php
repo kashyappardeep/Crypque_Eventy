@@ -36,10 +36,14 @@
                                 </a>
                                 
                             </div>
+                        @elseif($paymentHistoryForEvent &&$paymentHistoryForEvent->status == 1)
+                        <div class="card-footer text-center">
+                            <button class="btn btn-primary pay-now-btn" data-event-id="{{ $event->id }}">Pay Now</button>
+                            <button class="btn btn-secondary pay-crypto-btn" data-event-id="{{ $event->id }}">Pay With Crypto</button>
+                        </div>
                         @else
                             <div class="card-footer text-center">
-                                <button class="btn btn-primary pay-now-btn" data-event-id="{{ $event->id }}">Pay Now</button>
-                                <button class="btn btn-secondary pay-crypto-btn" data-event-id="{{ $event->id }}">Pay With Crypto</button>
+                                <button class="btn btn-secondary pay-crypto-btn">Pending</button>
                             </div>
                         @endif
                     </div>

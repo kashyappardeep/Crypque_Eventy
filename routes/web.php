@@ -58,6 +58,8 @@ Route::namespace('App\Http\Controllers\Admin')->prefix('admin')->group(function 
         Route::get('/allstudents', [AllStudentController::class, 'index'])->name('allstudents');
         Route::post('/uploadVideo', [EventController::class, 'uploadVideo'])->name('uploadVideo');
 
+        Route::get('/user-events', [AdminController::class, 'usereventlist'])->name('user-events');
+        Route::delete('/user-eventsdestroy/{id}', [AdminController::class, 'user_event_destroy'])->name('user-eventsdestroy');
 
         Route::post('/payment-history/accept/{id}', [PaymentHisController::class, 'accept'])->name('payment-history.accept');
         Route::post('/payment-history/reject/{id}', [PaymentHisController::class, 'reject'])->name('payment-history.reject');
